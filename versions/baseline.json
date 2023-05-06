@@ -1,0 +1,8 @@
+{
+  "default": {
+    "opentxs": {
+      "baseline": "1.149.0",
+      "port-version": 0
+    }
+  }
+}
