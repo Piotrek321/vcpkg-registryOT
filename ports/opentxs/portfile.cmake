@@ -1,5 +1,5 @@
 set(OPENTXS_REPO "https://github.com/Open-Transactions/opentxs")
-set(OPENTXS_COMMIT "930f165bb0cd47fe441d5db89878e86d609ac361")
+set(OPENTXS_COMMIT "705235dd809143a282258ff506e7dac469bdf6c9")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
 
 find_program(GIT git git.cmd NO_CMAKE_FIND_ROOT_PATH)
@@ -80,6 +80,7 @@ endif()
 vcpkg_cmake_configure(
   SOURCE_PATH
   "${SOURCE_PATH}"
+  DISABLE_PARALLEL_CONFIGURE
   OPTIONS
   -DOPENTXS_BUILD_TESTS=OFF
   -DOPENTXS_PEDANTIC_BUILD=OFF
@@ -96,7 +97,10 @@ vcpkg_cmake_configure(
   OPTIONS_DEBUG
   -DOPENTXS_DEBUG_BUILD=ON
 )
+
 vcpkg_cmake_install()
+vcpkg_fixup_cmake_targets()
+vcpkg_fixup_pkgconfig()
 
 file(
   INSTALL "${SOURCE_PATH}/LICENSE"
@@ -104,4 +108,4 @@ file(
   RENAME copyright
 )
 file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
-vcpkg_fixup_pkgconfig()
+file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")
