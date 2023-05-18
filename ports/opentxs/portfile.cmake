@@ -1,6 +1,7 @@
 set(OPENTXS_REPO "https://github.com/Open-Transactions/opentxs")
-set(OPENTXS_COMMIT "705235dd809143a282258ff506e7dac469bdf6c9")
+set(OPENTXS_COMMIT "08c5fe78296608738fbacc933f84c706b90d6fb8")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
+set(OT_VERSION_STRING "1.150.4")
 
 find_program(GIT git git.cmd NO_CMAKE_FIND_ROOT_PATH)
 
@@ -38,6 +39,9 @@ else()
     "${SOURCE_PATH}"
   )
 endif()
+
+file(REMOVE_RECURSE "${SOURCE_PATH}/cmake")
+file(REMOVE_RECURSE "${SOURCE_PATH}/deps")
 
 vcpkg_execute_in_download_mode(
   COMMAND
@@ -91,21 +95,16 @@ vcpkg_cmake_configure(
   -DOT_WITH_QML=${OPENTXS_USE_QT}
   -DOT_USE_VCPKG_TARGETS=ON
   -DOT_BOOST_JSON_HEADER_ONLY=OFF
-  -DQT_VERSION_MAJOR=${OPENTXS_QT_VERSION_MAJOR}
+  -Dopentxs_GIT_VERSION=${OT_VERSION_STRING}
   OPTIONS_RELEASE
   -DOPENTXS_DEBUG_BUILD=OFF
+  -DOT_LICENSE_FILE_NAME=copyright
   OPTIONS_DEBUG
   -DOPENTXS_DEBUG_BUILD=ON
+  -DOT_INSTALL_HEADERS=OFF
+  -DOT_INSTALL_LICENSE=OFF
+  -DOT_HEADER_INSTALL_PATH=../include
+  -DOT_CMAKE_INSTALL_PATH=${CURRENT_PACKAGES_DIR}/share/${PORT}/cmake
 )
 
 vcpkg_cmake_install()
-vcpkg_fixup_cmake_targets()
-vcpkg_fixup_pkgconfig()
-
-file(
-  INSTALL "${SOURCE_PATH}/LICENSE"
-  DESTINATION "${CURRENT_PACKAGES_DIR}/share/${PORT}"
-  RENAME copyright
-)
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/include")
-file(REMOVE_RECURSE "${CURRENT_PACKAGES_DIR}/debug/share")
