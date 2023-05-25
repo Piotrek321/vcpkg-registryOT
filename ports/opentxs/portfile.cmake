@@ -1,7 +1,7 @@
 set(OPENTXS_REPO "https://github.com/Open-Transactions/opentxs")
-set(OPENTXS_COMMIT "08c5fe78296608738fbacc933f84c706b90d6fb8")
+set(OPENTXS_COMMIT "b2c8873412b671286bd34bf568612eba8d46684c")
 set(SOURCE_PATH "${DOWNLOADS}/opentxs.git")
-set(OT_VERSION_STRING "1.150.4")
+set(OT_VERSION_STRING "1.150.5")
 
 find_program(GIT git git.cmd NO_CMAKE_FIND_ROOT_PATH)
 
