@@ -1,7 +1,7 @@
 {
     "default": {
         "opentxs": {
-            "baseline": "1.172.2",
+            "baseline": "1.172.3",
             "port-version": 0
         }
     }
