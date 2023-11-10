@@ -3,6 +3,10 @@
         "opentxs": {
             "baseline": "1.182.0",
             "port-version": 0
+        },
+        "boost-beast": {
+            "baseline": "1.83.0",
+            "port-version": 0
         }
     }
 }
