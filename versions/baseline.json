@@ -1,11 +1,15 @@
 {
     "default": {
+        "boost-beast": {
+            "baseline": "1.83.0",
+            "port-version": 0
+        },
         "opentxs": {
             "baseline": "1.182.0",
             "port-version": 0
         },
-        "boost-beast": {
-            "baseline": "1.83.0",
+        "otcommon": {
+            "baseline": "1.0.2",
             "port-version": 0
         }
     }
