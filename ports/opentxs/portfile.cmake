@@ -63,6 +63,16 @@ vcpkg_execute_in_download_mode(
   --recursive
 )
 
+file(READ "${SOURCE_PATH}/tools/cmake/libopentxs-find-dependencies.cmake"
+     FIND_DEPENDENCIES_VCPKG_WORKAROUND)
+file(READ "${SOURCE_PATH}/tools/cmake/opentxsConfig.cmake.in"
+     CASPERSDK_CONFIG_VCPKG_WORKAROUND)
+string(REPLACE "include(libopentxs-find-dependencies)"
+               "${FIND_DEPENDENCIES_VCPKG_WORKAROUND}" VCPKG_IS_BROKEN
+               "${CASPERSDK_CONFIG_VCPKG_WORKAROUND}")
+file(WRITE "${SOURCE_PATH}/tools/cmake/opentxsConfig.cmake.in"
+     "${VCPKG_IS_BROKEN}")
+
 if("qt5" IN_LIST FEATURES)
   set(OPENTXS_USE_QT5 ON)
   set(OPENTXS_QT_VERSION_MAJOR 5)

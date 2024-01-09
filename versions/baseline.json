@@ -6,7 +6,7 @@
         },
         "opentxs": {
             "baseline": "1.189.1",
-            "port-version": 0
+            "port-version": 1
         },
         "otcommon": {
             "baseline": "2.0.0",
