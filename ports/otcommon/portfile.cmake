@@ -1,7 +1,7 @@
 set(OTCOMMON_REPO "https://github.com/Open-Transactions/otcommon")
-set(OTCOMMON_COMMIT "a8cb2a10e7eff4fdece28feea681541b70728053")
+set(OTCOMMON_COMMIT "849b36b569d8404298bbed2691112b41630e35c7")
 set(SOURCE_PATH "${DOWNLOADS}/otcommon.git")
-set(OTCOMMON_VERSION_STRING "2.0.0-0-ga8cb2a1")
+set(OTCOMMON_VERSION_STRING "3.0.0-0-g849b36b")
 set(VCPKG_POLICY_EMPTY_INCLUDE_FOLDER enabled)
 
 find_program(GIT git git.cmd NO_CMAKE_FIND_ROOT_PATH)
