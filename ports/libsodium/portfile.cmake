@@ -1,3 +1,4 @@
+if(WIN32)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO jedisct1/libsodium
@@ -6,6 +7,15 @@ vcpkg_from_github(
     HEAD_REF master
     PATCHES libsodium-blake2b-symbol-collision.patch
 )
+else()
+vcpkg_from_github(
+    OUT_SOURCE_PATH SOURCE_PATH
+    REPO jedisct1/libsodium
+    REF ${VERSION}
+    SHA512 6094d7bf191ea3be85f2ddab76b71f1b9c69c786493db5b84d3c5d5a0237003377ddf6a8687a962ea651fe4a9369cf5ee1676ba0bae82690f5f7ef31a698efa9
+    HEAD_REF master
+)
+endif()
 
 file(COPY "${CMAKE_CURRENT_LIST_DIR}/CMakeLists.txt" DESTINATION "${SOURCE_PATH}")
 
