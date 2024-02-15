@@ -263,6 +263,7 @@ else ()
     sodium_check_func(nanosleep HAVE_NANOSLEEP)
     sodium_check_func(posix_memalign HAVE_POSIX_MEMALIGN)
     sodium_check_func(getpid HAVE_GETPID)
+    sodium_check_func(sysconf HAVE_SYSCONF)
 
     if (VCPKG_TARGET_ARCHITECTURE STREQUAL x64)
         check_c_source_compiles(
