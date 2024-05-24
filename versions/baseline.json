@@ -8,10 +8,6 @@
             "baseline": "5.4.4",
             "port-version": 1
         },
-        "libsodium": {
-            "baseline": "1.0.19",
-            "port-version": 4
-        },
         "otcommon": {
             "baseline": "3.0.0",
             "port-version": 0
